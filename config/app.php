@@ -178,6 +178,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        // Added by Jeannette on 10/6/2016 in DWA15 class
+        // https://github.com/susanBuck/dwa15-fall2016-notes/blob/master/03_Laravel/14_Composer_Packages.md
+        // https://github.com/barryvdh/laravel-debugbar
+        Barryvdh\Debugbar\ServiceProvider::class,
+
     ],
 
     /*
@@ -225,6 +230,11 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        // Added by Jeannette on 10/6/2016 in DWA15 class
+        // https://github.com/susanBuck/dwa15-fall2016-notes/blob/master/03_Laravel/14_Composer_Packages.md
+        // https://github.com/barryvdh/laravel-debugbar 
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
     ],
 
