@@ -11,6 +11,16 @@ class PracticeController extends Controller
     //
 
     public function example3() {
+
+      # Echo out what the mail => driver config is set to
+      echo config('mail.driver');
+      echo '<br>';
+      # Dump *all* of the mail configs
+      dump(config('mail'));
+      echo '<br>';
+      echo '<br>';
+      echo '<br>';
+
       // echo 'Environment: '.\App::environment();
       if(\App::environment() == 'local'){
         echo "Environment is local!";
