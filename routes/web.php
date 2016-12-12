@@ -93,3 +93,24 @@ if(App::environment('local')) {
     });
 
 };
+
+Auth::routes();
+// custome log out from the Class
+// https://github.com/susanBuck/dwa15-fall2016-notes/blob/master/03_Laravel/28_Building_Authentication.md
+Route::get('/logout','Auth\LoginController@logout')->name('logout');
+
+Route::get('/home', 'HomeController@index');
+
+
+Route::get('/show-login-status', function() {
+
+    # You may access the authenticated user via the Auth facade
+    $user = Auth::user();
+
+    if($user)
+        dump($user->toArray());
+    else
+        dump('You are not logged in.');
+
+    return;
+});
