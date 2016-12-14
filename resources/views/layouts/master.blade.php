@@ -13,7 +13,23 @@
     @yield('head')
 
 </head>
+<style>
+.flash_message {
+    width:100%;
+    text-align:center;
+    padding:5px;
+    position:fixed;
+    top:0;
+    left:0;
+    background-color:yellow;
+    font-weight:bold;
+}
+</style>
 <body>
+
+  @if(Session::get('flash_message') != null))
+      <div class='flash_message'>{{ Session::get('flash_message') }}</div>
+  @endif
 
     <header>
         <img
@@ -21,6 +37,21 @@
         style='width:300px'
         alt='Foobooks Logo'>
     </header>
+
+    <!-- Nav added by Jeannette -->
+    <nav>
+    <ul>
+        @if(Auth::check())
+            <li><a href='/'>Home</a></li>
+            <li><a href='/books/create'>Add a book</a></li>
+            <li><a href='/logout'>Log out</a></li>
+        @else
+            <li><a href='/'>Home</a></li>
+            <li><a href='/login'>Log in</a></li>
+            <li><a href='/register'>Register</a></li>
+        @endif
+    </ul>
+  </nav>
 
     <section>
         {{-- Main page content will be yielded here --}}

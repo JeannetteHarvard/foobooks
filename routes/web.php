@@ -11,14 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', 'PageController@welcome');
 
 
 # DWA Class Routes
 
-// Route::get('/books', 'BookController@index')->name('books.index');
+Route::get('/books', 'BookController@index')->name('books.index');
 // Route::get('/books/create', 'BookController@create')->name('books.create');
 // Route::post('/books', 'BookController@store')->name('books.store');
 // Route::get('/books/{book}', 'BookController@show')->name('books.show');
@@ -27,7 +26,10 @@ Route::get('/', function () {
 // Route::delete('/books/{book}', 'BookController@destroy')->name('books.destroy');
 
 Route::resource('/books', 'BookController');
-Route::post('/books/create', 'BookController@store')->name('books.store');
+Route::post('/books/create', 'BookController@store')->name('books.store')->middleware('auth');
+Route::get('/', 'BookController@index');
+
+// Route::get('/books/create', 'BookController@create')->name('books.create')->middleware('auth');
 
 ## DWA Practice
 // Route::get('/practice', function() {

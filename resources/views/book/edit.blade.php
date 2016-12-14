@@ -28,6 +28,16 @@
         <div class='error'>{{ $errors->first('title') }}</div>
     </div>
 
+    @foreach($tags_for_checkbox as $tag_id => $tag_name)
+        <input
+            type='checkbox'
+            value='{{ $tag_id }}'
+            name='tags[]'
+            {{ (in_array($tag_name, $tags_for_this_book)) ? 'CHECKED' : '' }}
+        >
+        {{ $tag_name }} <br>
+    @endforeach 
+
     <input type='submit' value='Add new book'>
 
 

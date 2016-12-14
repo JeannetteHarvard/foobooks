@@ -16,5 +16,9 @@ class Book extends Model
   {
       # With timetsamps() will ensure the pivot table has its created_at/updated_at fields automatically maintained
       return $this->belongsToMany('App\Tag')->withTimestamps();
-  }  
+  }
+
+  public static function getAllBooksWithAuthors() {
+    return Book::with('author')->orderBy('id','desc')->get();
+}
 }
